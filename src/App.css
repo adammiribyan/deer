@@ -8,7 +8,7 @@ body {
 .footer {
   margin-top: 2rem;
   color: #EBEBEB;
-  background-color: #2957F5;
+  background-color: #007bff;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -26,3 +26,7 @@ body {
 
 .container {
   max-width: 46rem; }
+
+.login-form__heading {
+  margin-bottom: 2rem;
+  color: #007bff; }

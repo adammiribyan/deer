@@ -1,3 +1,5 @@
+$blue: #007bff;
+
 body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -10,7 +12,7 @@ body {
 .footer {
   margin-top: 2rem;
   color: #EBEBEB;
-  background-color: #2957F5;
+  background-color: $blue;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -33,4 +35,11 @@ body {
 
 .container {
   max-width: 46rem;
+}
+
+.login-form {
+  &__heading {
+    margin-bottom: 2rem;
+    color: $blue
+  }
 }
