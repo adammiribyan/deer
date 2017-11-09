@@ -19,7 +19,7 @@ export default class SessionForm extends Component {
       <form onSubmit={this.onFormSubmit}>
         <div className="form-group">
           <label for="session_email">Email</label>
-          <input type="email" className="form-control" id="session_email" />
+          <input type="email" className="form-control" id="session_email" autofocus="true" />
         </div>
 
         <div className="form-group">
