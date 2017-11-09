@@ -4,7 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import App from './containers/App';
-import Deer from './reducers/index';
+import Deer from './reducers';
+import './App.css';
 import registerServiceWorker from './registerServiceWorker';
 
 let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);

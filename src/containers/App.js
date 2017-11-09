@@ -1,8 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
-import Login from '../components/Login';
-import Navigation from '../components/Navigation';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import Footer from '../components/Footer';
 
 class App extends Component {
   render() {
@@ -10,21 +12,24 @@ class App extends Component {
 
     return (
       <div>
-        <Navigation
+        <Header
           isAuthenticated={isAuthenticated}
           errorMessage={errorMessage}
           dispatch={dispatch}
         />
 
-        <div className="container">
-          Deer
-        </div>
+        <Main />
+
+        <Footer />
       </div>
     );
   }
 }
 
 App.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string
 }
 
 function mapStateToProps(state) {
