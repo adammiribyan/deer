@@ -10,15 +10,13 @@ class Navigation extends Component {
   }
 
   render() {
-    { currentUser } = this.props;
-
-    const isLoggedIn = !!currentUser;
+    const isLoggedIn = !!this.props.currentUser;
 
     return(
       <nav>
           {isLoggedIn ? (
             <ul className="nav nav-pills float-right">
-              <NavigationItem href='#'>{currentUser.email}</NavigationItem>
+              <NavigationItem href='#'>{this.props.currentUser.email}</NavigationItem>
               <NavigationItem href="#/logout" onClick={this.handleLogout}>Logout</NavigationItem>
             </ul>
           ) : (
