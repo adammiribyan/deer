@@ -5,7 +5,7 @@ const NavigationItem = (props) => {
   const activeClass = props.active ? 'active' : ''
 
   return(
-    <li className="nav-item">
+    <li className="nav-item" onClick={props.onClick}>
       <a className={`nav-link ${activeClass}`} href={props.href}>{props.children}</a>
     </li>
   )

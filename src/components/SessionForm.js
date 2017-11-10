@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Env from '../Env';
-import jwt_decode from 'jwt-decode';
+import { login } from '../actions/sessionActions.js'
 
 export default class SessionForm extends Component {
   constructor(props) {
@@ -15,17 +13,7 @@ export default class SessionForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
-    axios.post('/auth', {
-      user: {
-        email: this.state.email,
-        password: this.state.password
-      }
-    }).then(
-      (response) => {
-        console.log(jwt_decode(response.data.token));
-      }
-    )
+    this.props.dispatch(login(this.state));
   }
 
   render() {

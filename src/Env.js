@@ -1,5 +1,0 @@
-const Env = {
-  secretKeyBase: '70d92b61e79b35c162caaa0dc5a5b5393fd6689534a4a6132b82fc3a270a331203d819df539f941e695c45465a072bd3726395cf0df8ba2d4d3a22252a2864e3'
-}
-
-export default Env;

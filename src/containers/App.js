@@ -1,45 +1,30 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loginUser } from '../actions';
+
+import Notification from '../components/Notification';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
 
 class App extends Component {
   render() {
-    const { dispatch, isAuthenticated, errorMessage } = this.props;
+    const { dispatch, session } = this.props;
 
     return (
       <div>
-        <Header
-          isAuthenticated={isAuthenticated}
-          errorMessage={errorMessage}
-          dispatch={dispatch}
-        />
-
-        <Main />
-
+        <Header dispatch={dispatch} currentUser={session.currentUser} />
+        <Notification content={session.errorMessage} />
+        <Main dispatch={dispatch} isLoggedIn={!!session.currentUser} />
         <Footer />
       </div>
     );
   }
 }
 
-App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string
-}
-
 function mapStateToProps(state) {
-  const { auth } = state;
-  const { isAuthenticated, errorMessage } = auth;
-
   return {
-    isAuthenticated,
-    errorMessage
-  }
+    session: state.session,
+  };
 }
 
 export default connect(mapStateToProps)(App);

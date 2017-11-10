@@ -1,15 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
+
 import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
+import logger from 'redux-logger';
+
 import App from './containers/App';
-import Deer from './reducers';
+import reducers from './reducers';
+
 import './App.css';
 import registerServiceWorker from './registerServiceWorker';
 
-let createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-let store = createStoreWithMiddleware(Deer);
+const store = createStore(
+  reducers,
+  applyMiddleware(logger, thunk, promise())
+);
 
 render(
   <Provider store={store}>

@@ -4,6 +4,8 @@ body {
 
 .header {
   margin-bottom: 6rem; }
+  .header__notification {
+    margin-bottom: 1rem; }
 
 .footer {
   margin-top: 2rem;
